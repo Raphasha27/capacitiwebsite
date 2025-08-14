@@ -146,7 +146,7 @@ const ImpactSection = () => {
     setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)
   }
 
-  const CountUpAnimation = ({ value, duration = 2000 }) => {
+  const CountUpAnimation = ({ value, duration = 2000 }: { value: string; duration?: number }) => {
     const [count, setCount] = useState(0)
     
     useState(() => {
@@ -167,7 +167,7 @@ const ImpactSection = () => {
         
         return () => clearInterval(timer)
       }
-    }, [inView, value, duration])
+    })
     
     return <span>{value.replace(/\d+/, count.toString())}</span>
   }

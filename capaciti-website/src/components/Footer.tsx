@@ -21,7 +21,7 @@ const Footer = () => {
   const [email, setEmail] = useState('')
   const [newsletterStatus, setNewsletterStatus] = useState('')
 
-  const handleNewsletterSubmit = async (e) => {
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setNewsletterStatus('loading')
     
@@ -76,7 +76,7 @@ const Footer = () => {
     { icon: Youtube, href: 'https://youtube.com/capaciti', name: 'YouTube' },
   ]
 
-  const handleLinkClick = (href) => {
+  const handleLinkClick = (href: string) => {
     if (href.startsWith('#')) {
       const sectionId = href.substring(1)
       scrollToSection(sectionId)

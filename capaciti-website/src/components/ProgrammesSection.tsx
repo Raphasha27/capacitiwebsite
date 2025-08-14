@@ -26,7 +26,7 @@ const ProgrammesSection = () => {
   })
 
   const [activeFilter, setActiveFilter] = useState('all')
-  const [selectedProgramme, setSelectedProgramme] = useState(null)
+  const [selectedProgramme, setSelectedProgramme] = useState<any>(null)
 
   const filters = [
     { id: 'all', label: 'All Programs' },
@@ -229,7 +229,7 @@ const ProgrammesSection = () => {
     ? programmes 
     : programmes.filter(prog => prog.category === activeFilter)
 
-  const openModal = (programme) => {
+  const openModal = (programme: any) => {
     setSelectedProgramme(programme)
     document.body.style.overflow = 'hidden'
   }
@@ -414,7 +414,7 @@ const ProgrammesSection = () => {
                     <div>
                       <h3 className="text-xl font-bold text-gray-900 mb-4">What You'll Learn</h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        {selectedProgramme.curriculum.map((item, index) => (
+                        {selectedProgramme.curriculum.map((item: string, index: number) => (
                           <div key={index} className="flex items-center space-x-3">
                             <div className="w-2 h-2 bg-capaciti-primary rounded-full"></div>
                             <span className="text-gray-700">{item}</span>
@@ -427,7 +427,7 @@ const ProgrammesSection = () => {
                     <div>
                       <h3 className="text-xl font-bold text-gray-900 mb-4">Career Outcomes</h3>
                       <div className="space-y-2">
-                        {selectedProgramme.outcomes.map((outcome, index) => (
+                        {selectedProgramme.outcomes.map((outcome: string, index: number) => (
                           <div key={index} className="flex items-center space-x-3">
                             <Award className="w-5 h-5 text-capaciti-accent" />
                             <span className="text-gray-700">{outcome}</span>
@@ -440,7 +440,7 @@ const ProgrammesSection = () => {
                     <div>
                       <h3 className="text-xl font-bold text-gray-900 mb-4">Prerequisites</h3>
                       <div className="space-y-2">
-                        {selectedProgramme.requirements.map((req, index) => (
+                        {selectedProgramme.requirements.map((req: string, index: number) => (
                           <div key={index} className="flex items-center space-x-3">
                             <div className="w-2 h-2 bg-capaciti-secondary rounded-full"></div>
                             <span className="text-gray-700">{req}</span>
